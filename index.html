@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ольга Бриджес - Лучший нотариус Южной Каролины</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            .cities-section h2,
+            .contacts-section h2 {
+                font-size: 2em;
+            }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 15vh;
+        }
+
+        /* Черный хедер */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15vh;
+            background: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin: 5px 0 0 0;
+            color: #ccc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Первая секция - О себе */
+        .hero-section {
+            background: white;
+            padding: 60px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 300;
+        }
+
+        .hero-text p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #555;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Вторая секция - Карусель городов */
+        .cities-section {
+            background: #616161;
+            color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .cities-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-slide {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .carousel-slide h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .carousel-slide p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #f0f0f0;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: -70px;
+        }
+
+        .carousel-nav.next {
+            right: -70px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Третья секция - Контакты */
+        .contacts-section {
+            background: #f1f1f1;
+            color: #333;
+            padding: 80px 0;
+        }
+
+        .contacts-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-weight: 300;
+        }
+
+        .contacts-content {
+            display: block;
+        }
+
+        .contact-info {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .contact-item i {
+            width: 30px;
+            color: #616161;
+            margin-right: 15px;
+            font-size: 1.3em;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Видео контейнер */
+        .video-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                max-width: 1200px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2em;
+            }
+
+            .contacts-content {
+                display: block;
+            }
+
+            .carousel-nav {
+                display: none;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Черный хедер -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Ольга Бриджес</h1>
+            <p>Ваш нотариус в Южной Каролине</p>
+        </div>
+    </header>
+    <!-- Первая секция - О себе -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="https://olgabridges.com/resources/img/olga-bridges-photo.jpg" alt="Фотография Ольги Бриджес">
+                </div>
+                <div class="hero-text">
+                    <h1>Здравствуйте и давайте знакомиться!</h1>
+                    <p>Меня зовут Ольга Бриджес, и я сертифицированный нотариус штата Южная Каролина. Моя миссия - предоставить вам надежные и профессиональные нотариальные услуги с максимальным комфортом и удобством.</p>
+                    
+                    <p>Я специализируюсь на заверении документов, оформлении доверенностей, нотариальном удостоверении сделок с недвижимостью, а также предоставлении полного спектра нотариальных услуг для частных лиц и бизнеса. Мой многолетний опыт и внимание к деталям гарантируют, что каждый документ будет оформлен в соответствии с законодательством штата.</p>
+                    
+                    <p>Я понимаю важность каждого документа для моих клиентов и стремлюсь создать доверительную атмосферу. Работаю как в офисе, так и с выездом к клиенту, предлагая гибкий график и индивидуальный подход к каждому случаю.</p>
+                    
+                    <p>Профессионализм, точность и конфиденциальность - основные принципы моей работы. Я всегда готова ответить на ваши вопросы и помочь с любыми нотариальными потребностями.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Вторая секция - Карусель городов -->
+    <section class="cities-section">
+        <div class="container">
+            <h2>Наши города</h2>
+            <div class="carousel-container">
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-slide active">
+                    <h3>Спартанбург</h3>
+                    <p>Спартанбург - динамично развивающийся город в северной части Южной Каролины. Это идеальное место для жизни с богатой историей, отличными школами и растущим рынком недвижимости. Город предлагает отличные возможности как для молодых семей, так и для инвесторов. Близость к природным паркам и горам делает его особенно привлекательным для тех, кто ценит активный образ жизни.</p>
+                </div>
+                
+                <div class="carousel-slide">
+                    <h3>Гринвиль</h3>
+                    <p>Гринвиль - жемчужина Южной Каролины, известная своим живописным центром города и процветающей экономикой. Этот город сочетает в себе южное очарование с современными удобствами. Прекрасные парки, рестораны мирового класса и активная культурная жизнь делают Гринвиль идеальным местом для покупки недвижимости. Стабильный рост цен на недвижимость делает инвестиции здесь особенно выгодными.</p>
+                </div>
+                
+                <button class="carousel-nav next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Ws9lzk8FD4Y" 
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Третья секция - Контакты -->
+    <section class="contacts-section">
+        <div class="container">
+            <h2>Наша контактная информация</h2>
+            <div class="contacts-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>292 South Pine Street, Spartanburg, SC</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@olgabridges.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (864) 884 3333</span>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.8742656985736!2d-81.93483492419547!3d34.95032937277617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8858393b3f5d5a87%3A0x7a5b0c2a8e8b8c6d!2s292%20S%20Pine%20St%2C%20Spartanburg%2C%20SC%2029302%2C%20USA!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            // Скрыть все слайды
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Показать текущий слайд
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+    </script>
+</body>
+</html>
