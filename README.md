@@ -32,7 +32,9 @@ Professional website providing information about notary services in Spartanburg 
 The site is automatically deployed to GitHub Pages on push to main branch.
 
 ## Project Structure
+```
 /
 ├── index.html
 ├── .github/workflows/deploy.yml
 └── README.md
+```
