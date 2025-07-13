@@ -34,7 +34,7 @@ The site is automatically deployed to GitHub Pages on push to main branch.
 ## Project Structure
 ```
 /
-├── index.html
 ├── .github/workflows/deploy.yml
+├── index.html
 └── README.md
 ```
