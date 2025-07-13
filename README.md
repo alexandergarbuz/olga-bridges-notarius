@@ -1,13 +1,38 @@
-# Ольга Бриджес
-## Ваш нотариус в Южной Каролине
+# Olga Bridges - South Carolina Notary
 
+Official website for Olga Bridges' notary services in South Carolina.
 
-## Здравствуйте и давайте знакомиться!
+## Live Site
 
-Меня зовут Ольга Бриджес, и я сертифицированный нотариус штата Южная Каролина. Моя миссия - предоставить вам надежные и профессиональные нотариальные услуги с максимальным комфортом и удобством.
+The site is automatically deployed to GitHub Pages:
+https://alexandergarbuz.github.io/olga-bridges-notarius/
 
-Я специализируюсь на заверении документов, оформлении доверенностей, нотариальном удостоверении сделок с недвижимостью, а также предоставлении полного спектра нотариальных услуг для частных лиц и бизнеса. Мой многолетний опыт и внимание к деталям гарантируют, что каждый документ будет оформлен в соответствии с законодательством штата.
+## Description
 
-Я понимаю важность каждого документа для моих клиентов и стремлюсь создать доверительную атмосферу. Работаю как в офисе, так и с выездом к клиенту, предлагая гибкий график и индивидуальный подход к каждому случаю.
+Professional website providing information about notary services in Spartanburg and Greenville, South Carolina.
 
-Профессионализм, точность и конфиденциальность - основные принципы моей работы. Я всегда готова ответить на ваши вопросы и помочь с любыми нотариальными потребностями.
+### Website Features:
+- Information about notary Olga Bridges
+- Description of serviced cities with carousel
+- Contact information and map
+- Video presentation of services
+- Responsive design
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- Font Awesome
+- Google Maps
+- YouTube
+
+## Deployment
+
+The site is automatically deployed to GitHub Pages on push to main branch.
+
+## Project Structure
+/
+├── index.html
+├── .github/workflows/deploy.yml
+└── README.md
